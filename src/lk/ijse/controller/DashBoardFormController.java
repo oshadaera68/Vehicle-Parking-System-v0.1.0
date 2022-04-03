@@ -6,9 +6,13 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Date;
@@ -38,11 +42,17 @@ public class DashBoardFormController {
     }
 
     public void parkVehicleOnAction(ActionEvent actionEvent) {
+
     }
 
     public void onDeliveryShiftOnAction(ActionEvent actionEvent) {
+
     }
 
-    public void managementLogInOnAction(ActionEvent actionEvent) {
+    public void managementLogInOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LogInUi.fxml"))));
+        stage.setTitle("Log in");
+        stage.show();
     }
 }
