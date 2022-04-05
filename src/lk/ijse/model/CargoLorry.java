@@ -4,21 +4,21 @@ import java.io.IOException;
 
 import static lk.ijse.controller.ManagementFormController.pOutputListTM;
 
-public class Van extends Vehicle {
-    int[] vanSlots = new int[]{1, 2, 3, 4, 12, 13};
+public class CargoLorry extends Vehicle {
+    int[] cargoLorrySlots = new int[]{5, 6, 7, 8, 9, 10, 11};
 
-    public Van() {
+    public CargoLorry() {
         super();
     }
 
-    public Van(String vehicleNumber, String vehicleType, double maxWeight, int noPassengers) {
+    public CargoLorry(String vehicleNumber, String vehicleType, double maxWeight, int noPassengers) {
         super(vehicleNumber, vehicleType, maxWeight, noPassengers);
     }
 
     @Override
     public int park(String vehicleNumber, String vehicleType) throws IOException {
         B1:
-        for (int i : vanSlots) {
+        for (int i : cargoLorrySlots) {
             if (pOutputListTM.size() == 0) {
                 return i;
             } else {

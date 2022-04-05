@@ -54,12 +54,12 @@
                   <Font name="Ubuntu Regular" size="18.0" />
                </font>
             </JFXButton>
-            <TableView layoutX="31.0" layoutY="195.0" prefHeight="391.0" prefWidth="956.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 36px;">
+            <TableView fx:id="tblVehicle" layoutX="31.0" layoutY="195.0" prefHeight="391.0" prefWidth="956.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 36px;">
               <columns>
-                <TableColumn prefWidth="216.0" style="-fx-font: Ubuntu;" text="Vehicle Number" />
-                <TableColumn prefWidth="243.0" text="Vehicle Type" />
-                  <TableColumn prefWidth="263.0" text="Parking Slot" />
-                  <TableColumn prefWidth="233.0" text="Parked Time" />
+                <TableColumn fx:id="colVehicleNum" prefWidth="216.0" text="Vehicle Number" />
+                <TableColumn fx:id="colVehicleType" prefWidth="243.0" text="Vehicle Type" />
+                  <TableColumn fx:id="colParkingSlot" prefWidth="263.0" text="Parking Slot" />
+                  <TableColumn fx:id="colParkedTime" prefWidth="233.0" text="Parked Time" />
               </columns>
             </TableView>
          </children>
