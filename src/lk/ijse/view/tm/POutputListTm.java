@@ -1,15 +1,15 @@
 package lk.ijse.view.tm;
 
-public class POutputListTM {
+public class POutputListTm {
     private String VehicleNumber;
     private String VehicleType;
     private int ParkingSlot;
     private String ParkedTime;
 
-    public POutputListTM() {
+    public POutputListTm() {
     }
 
-    public POutputListTM(String vehicleNumber, String vehicleType, int parkingSlot, String parkedTime) {
+    public POutputListTm(String vehicleNumber, String vehicleType, int parkingSlot, String parkedTime) {
         VehicleNumber = vehicleNumber;
         VehicleType = vehicleType;
         ParkingSlot = parkingSlot;

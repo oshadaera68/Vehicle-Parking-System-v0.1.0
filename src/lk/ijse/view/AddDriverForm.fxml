@@ -32,7 +32,7 @@
                   <Font name="Ubuntu Regular" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="570.0" layoutY="85.0" onAction="#saveOnAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #9b59b6; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
+            <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="570.0" layoutY="85.0" onAction="#saveOnAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #9b59b6; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
                <font>
                   <Font name="Ubuntu Regular" size="20.0" />
                </font>
@@ -46,11 +46,12 @@
       </Pane>
       <TableView fx:id="tblDrivers" layoutX="36.0" layoutY="299.0" prefHeight="291.0" prefWidth="825.0">
         <columns>
-          <TableColumn fx:id="colDriverName" prefWidth="165.0" text="Driver Name" />
-          <TableColumn fx:id="colNIC" prefWidth="165.0" text="NIC" />
-            <TableColumn fx:id="colDLNo" prefWidth="165.0" text="Driving License No" />
-            <TableColumn fx:id="colAddress" prefWidth="165.0" text="Address" />
-            <TableColumn fx:id="colContactNo" prefWidth="165.0" text="Contact No" />
+          <TableColumn fx:id="colDriverName" prefWidth="146.0" text="Driver Name" />
+          <TableColumn fx:id="colNIC" prefWidth="114.0" text="NIC" />
+            <TableColumn fx:id="colDLNo" prefWidth="143.0" text="Driving License No" />
+            <TableColumn fx:id="colAddress" prefWidth="117.0" text="Address" />
+            <TableColumn fx:id="colContactNo" minWidth="0.0" prefWidth="143.0" text="Contact No" />
+            <TableColumn fx:id="colOption" minWidth="0.0" prefWidth="161.0" text="Option" />
         </columns>
       </TableView>
    </children>

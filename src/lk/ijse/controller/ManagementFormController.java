@@ -4,21 +4,19 @@ import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import lk.ijse.view.tm.DOutputListTM;
-import lk.ijse.view.tm.POutputListTM;
+import lk.ijse.view.tm.DOutputListTm;
+import lk.ijse.view.tm.POutputListTm;
 
 import java.io.IOException;
 
 public class ManagementFormController {
-    public static ObservableList<POutputListTM> pOutputListTM = FXCollections.observableArrayList();
-    public static ObservableList<DOutputListTM> dOutputListTM = FXCollections.observableArrayList();
+    public static ObservableList<POutputListTm> pOutputListTM = FXCollections.observableArrayList();
+    public static ObservableList<DOutputListTm> dOutputListTM = FXCollections.observableArrayList();
     public JFXComboBox cmbOption;
     public TableView tblVehicle;
     public TableColumn colVehicleNum;

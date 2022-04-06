@@ -1,15 +1,15 @@
 package lk.ijse.view.tm;
 
-public class DOutputListTM {
+public class DOutputListTm {
     private String VehicleNumber;
     private String VehicleType;
     private String DriverName;
     private  String  LeftTime;
 
-    public DOutputListTM() {
+    public DOutputListTm() {
     }
 
-    public DOutputListTM(String vehicleNumber, String vehicleType, String driverName, String leftTime) {
+    public DOutputListTm(String vehicleNumber, String vehicleType, String driverName, String leftTime) {
         VehicleNumber = vehicleNumber;
         VehicleType = vehicleType;
         DriverName = driverName;
