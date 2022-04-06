@@ -12,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.model.Bus;
 import lk.ijse.model.CargoLorry;
@@ -51,9 +52,8 @@ public class AddVehicleFormController {
     public TableColumn colVehicleNum;
     public TableColumn colNoOfPassengers;
     public TableColumn colMaxWeight;
-
-    //Add vehicle details
     public TableColumn colVehicleType;
+    public AnchorPane context;
 
     public void initialize() {
         /*Table setup*/
@@ -153,7 +153,7 @@ public class AddVehicleFormController {
     }
 
     public void cancelOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
+        Stage stage = (Stage) context.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ManagementForm.fxml"))));
         stage.show();
     }

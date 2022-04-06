@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="613.0" prefWidth="901.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddDriverFormController">
+   <children>
+      <Pane layoutX="36.0" layoutY="14.0" prefHeight="76.0" prefWidth="825.0" style="-fx-background-color: red; -fx-background-radius: 30px;">
+         <children>
+            <Label layoutX="45.0" layoutY="22.0" text="Driver Form - Vehicle Parking System" textFill="WHITE">
+               <font>
+                  <Font name="Ubuntu Regular" size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="37.0" layoutY="121.0" prefHeight="153.0" prefWidth="825.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 30px;">
+         <children>
+            <JFXTextField fx:id="txtDriverName" labelFloat="true" layoutX="26.0" layoutY="13.0" prefHeight="40.0" prefWidth="168.0" promptText="Driver Name" />
+            <JFXTextField fx:id="txtNIC" labelFloat="true" layoutX="26.0" layoutY="80.0" prefHeight="40.0" prefWidth="168.0" promptText="NIC" />
+            <JFXTextField fx:id="txtContactNo" labelFloat="true" layoutX="469.0" layoutY="13.0" prefHeight="40.0" prefWidth="168.0" promptText="Contact No" />
+            <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="244.0" layoutY="79.0" prefHeight="40.0" prefWidth="168.0" promptText="Address" />
+            <JFXTextField fx:id="txtDLNo" labelFloat="true" layoutX="245.0" layoutY="13.0" prefHeight="40.0" prefWidth="168.0" promptText="DL No" />
+            <JFXButton buttonType="RAISED" layoutX="442.0" layoutY="84.0" onAction="#newDriverOnAction" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: #3498db; -fx-background-radius: 20px;" text="+new" textFill="WHITE">
+               <font>
+                  <Font name="Ubuntu Regular" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="570.0" layoutY="85.0" onAction="#saveOnAction" prefHeight="38.0" prefWidth="103.0" style="-fx-background-color: #9b59b6; -fx-background-radius: 20px;" text="Save" textFill="WHITE">
+               <font>
+                  <Font name="Ubuntu Regular" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="699.0" layoutY="85.0" onAction="#cancelOnAction" prefHeight="31.0" prefWidth="103.0" style="-fx-background-color: #e74c3c; -fx-background-radius: 20px;" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="Ubuntu Regular" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <TableView fx:id="tblDrivers" layoutX="36.0" layoutY="299.0" prefHeight="291.0" prefWidth="825.0">
+        <columns>
+          <TableColumn fx:id="colDriverName" prefWidth="165.0" text="Driver Name" />
+          <TableColumn fx:id="colNIC" prefWidth="165.0" text="NIC" />
+            <TableColumn fx:id="colDLNo" prefWidth="165.0" text="Driving License No" />
+            <TableColumn fx:id="colAddress" prefWidth="165.0" text="Address" />
+            <TableColumn fx:id="colContactNo" prefWidth="165.0" text="Contact No" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
