@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="646.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddVehicleFormController">
+<AnchorPane fx:id="context" prefHeight="646.0" prefWidth="965.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.controller.AddVehicleFormController">
    <children>
       <Pane layoutX="30.0" layoutY="14.0" prefHeight="84.0" prefWidth="890.0" style="-fx-background-color: red; -fx-background-radius: 30px;">
          <children>
@@ -23,23 +23,23 @@
       </Pane>
       <Pane layoutX="30.0" layoutY="121.0" prefHeight="148.0" prefWidth="890.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 30px;">
          <children>
-            <JFXTextField fx:id="txtVehicleNum" labelFloat="true" layoutX="27.0" layoutY="14.0" prefHeight="44.0" prefWidth="187.0" promptText="Vehicle Number" />
-            <JFXTextField fx:id="txtMaxWeight" labelFloat="true" layoutX="27.0" layoutY="83.0" prefHeight="44.0" prefWidth="187.0" promptText="Max. Weight" />
-            <JFXTextField fx:id="txtNoOfPassengers" labelFloat="true" layoutX="288.0" layoutY="12.0" prefHeight="44.0" prefWidth="210.0" promptText="No of Passengers" />
-            <JFXComboBox fx:id="cmbVehicleType" labelFloat="true" layoutX="288.0" layoutY="84.0" prefHeight="44.0" prefWidth="210.0" promptText="Vehicle Type" />
-            <JFXButton buttonType="RAISED" layoutX="655.0" layoutY="21.0" onAction="#addVehicleOnAction" prefHeight="35.0" prefWidth="129.0" style="-fx-background-color: #9b59b6;" text="Save" textFill="WHITE">
+            <JFXTextField fx:id="txtVehicleNum" labelFloat="true" layoutX="27.0" layoutY="14.0" prefHeight="44.0" prefWidth="187.0" promptText="Vehicle Number" style="-fx-background-radius: 14px; -fx-background-color: white;" />
+            <JFXTextField fx:id="txtMaxWeight" labelFloat="true" layoutX="27.0" layoutY="83.0" prefHeight="44.0" prefWidth="187.0" promptText="Max. Weight" style="-fx-background-color: white; -fx-background-radius: 14px;" />
+            <JFXTextField fx:id="txtNoOfPassengers" labelFloat="true" layoutX="288.0" layoutY="12.0" prefHeight="44.0" prefWidth="210.0" promptText="No of Passengers" style="-fx-background-color: white; -fx-background-radius: 14px;" />
+            <JFXComboBox fx:id="cmbVehicleType" labelFloat="true" layoutX="288.0" layoutY="84.0" prefHeight="44.0" prefWidth="210.0" promptText="Vehicle Type" style="-fx-background-color: white; -fx-background-radius: 14px;" />
+            <JFXButton buttonType="RAISED" layoutX="655.0" layoutY="21.0" onAction="#addVehicleOnAction" prefHeight="35.0" prefWidth="129.0" style="-fx-background-color: #9b59b6; -fx-background-radius: 15px;" text="Save" textFill="WHITE">
                <font>
                   <Font name="Ubuntu Regular" size="22.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="655.0" layoutY="85.0" onAction="#cancelOnAction" prefHeight="35.0" prefWidth="129.0" style="-fx-background-color: red;" text="Cancel" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="655.0" layoutY="85.0" onAction="#cancelOnAction" prefHeight="35.0" prefWidth="129.0" style="-fx-background-color: red; -fx-background-radius: 15px;" text="Cancel" textFill="WHITE">
                <font>
                   <Font name="Ubuntu Regular" size="22.0" />
                </font>
             </JFXButton>
          </children>
       </Pane>
-      <TableView fx:id="tblAddVehicle" layoutX="30.0" layoutY="289.0" prefHeight="325.0" prefWidth="876.0" style="-fx-background-radius: 30px; -fx-background-color: #bdc3c7; -fx-border-color: #2c3e50;">
+      <TableView fx:id="tblAddVehicle" layoutX="30.0" layoutY="289.0" prefHeight="325.0" prefWidth="890.0" style="-fx-background-radius: 30px; -fx-background-color: #bdc3c7; -fx-border-color: #2c3e50;">
         <columns>
           <TableColumn fx:id="colVehicleNum" prefWidth="218.0" text="Vehicle Number" />
           <TableColumn fx:id="colNoOfPassengers" prefWidth="219.0" text="No of passengers" />

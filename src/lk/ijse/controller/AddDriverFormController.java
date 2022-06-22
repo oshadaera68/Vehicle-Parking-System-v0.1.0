@@ -7,14 +7,21 @@ package lk.ijse.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import lk.ijse.model.Driver;
 import lk.ijse.view.tm.DriverTm;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class AddDriverFormController {
     public static ArrayList<Driver> driverArrayList = new ArrayList<>();
@@ -51,6 +58,7 @@ public class AddDriverFormController {
     public TableColumn<Object, Object> colContactNo;
     public TableColumn<Object, Object> colOption;
     public JFXButton btnSave;
+    public AnchorPane context;
 
     public void initialize() {
         colDriverName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -77,11 +85,61 @@ public class AddDriverFormController {
     }
 
     public void newDriverOnAction(ActionEvent actionEvent) {
+        btnSave.setText("Save");
+    }
+
+    private void loadAllDriverDetails() {
+        ObservableList<DriverTm> driverTms = FXCollections.observableArrayList();
+        for (Driver d1 : driverArrayList) {
+            Button button = new Button("Remove driver");
+            driverTms.add(new DriverTm(d1.getName(), d1.getNic(), d1.getdLNo(), d1.getAddress(), d1.getcNo(), button));
+            button.setOnAction(e -> {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, txtNIC.getText() + " is " + txtDriverName.getText() + ". Are you delete surely?", ButtonType.YES, ButtonType.NO);
+                Optional<ButtonType> buttonType = alert.showAndWait();
+                if (buttonType.get().equals(ButtonType.YES)) {
+                    driverArrayList.remove(d1);
+                    loadAllDriverDetails();
+                    new Alert(Alert.AlertType.CONFIRMATION, txtDriverName.getText() + "is deleted...!", ButtonType.OK).show();
+                }
+            });
+        }
+        tblDrivers.setItems(driverTms);
     }
 
     public void saveOnAction(ActionEvent actionEvent) {
+        if (driverArrayList.size() == 16) {
+            new Alert(Alert.AlertType.WARNING, "company drivers are full...", ButtonType.OK).show();
+        } else {
+            if (btnSave.getText().equals("Save")) {
+                Driver driver = new Driver(
+                        txtDriverName.getText(),
+                        txtNIC.getText(),
+                        txtDLNo.getText(),
+                        txtAddress.getText(),
+                        txtContactNo.getText()
+                );
+                new Alert(Alert.AlertType.CONFIRMATION, txtDriverName.getText() + "is added", ButtonType.OK).show();
+                driverArrayList.add(driver);
+                loadAllDriverDetails();
+            } else {
+                for (Driver temp : driverArrayList) {
+                    if (temp.getNic().equals(txtNIC.getText())) {
+                        temp.setName(txtDriverName.getText());
+                        temp.setdLNo(txtDLNo.getText());
+                        temp.setAddress(txtAddress.getText());
+                        temp.setcNo(txtContactNo.getText());
+                        new Alert(Alert.AlertType.CONFIRMATION, "Updated...", ButtonType.OK).show();
+                        loadAllDriverDetails();
+                        return;
+                    }
+                }
+            }
+        }
     }
 
-    public void cancelOnAction(ActionEvent actionEvent) {
+    public void cancelOnAction(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage) context.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ManagementForm.fxml"))));
+        stage.show();
     }
 }

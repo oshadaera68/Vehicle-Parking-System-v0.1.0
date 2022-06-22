@@ -4,7 +4,7 @@ public class DOutputListTm {
     private String VehicleNumber;
     private String VehicleType;
     private String DriverName;
-    private  String  LeftTime;
+    private String LeftTime;
 
     public DOutputListTm() {
     }
