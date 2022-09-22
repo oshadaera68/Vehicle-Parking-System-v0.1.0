@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
@@ -54,6 +55,7 @@ public class AddVehicleFormController {
     public TableColumn colMaxWeight;
     public TableColumn colVehicleType;
     public AnchorPane context;
+    public JFXButton btnSave;
 
     public void initialize() {
         /*Table setup*/
@@ -156,5 +158,13 @@ public class AddVehicleFormController {
         Stage stage = (Stage) context.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ManagementForm.fxml"))));
         stage.show();
+    }
+
+    public void newVehicleOnAction(ActionEvent actionEvent) {
+        btnSave.setText("Save");
+        txtMaxWeight.clear();
+        txtVehicleNum.clear();
+        txtNoOfPassengers.clear();
+
     }
 }

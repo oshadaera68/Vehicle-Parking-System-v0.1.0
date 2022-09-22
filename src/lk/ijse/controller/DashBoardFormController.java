@@ -10,10 +10,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 import javafx.util.Duration;
 import lk.ijse.model.Driver;
 import lk.ijse.model.Vehicle;
@@ -40,6 +43,7 @@ public class DashBoardFormController {
     public JFXButton btnOnDeliveryShift;
     public JFXTextField txtSlotNo;
     public Label lblVehicleType;
+    public AnchorPane rootContext;
     String time;
 
     public void initialize() {
@@ -82,12 +86,12 @@ public class DashBoardFormController {
     public void disableAndEnableButtonOption(String value) {
         btnPark.setDisable(false);
         btnOnDeliveryShift.setDisable(false);
-        for (POutputListTm temp : pOutputListTM){
+        for (POutputListTm temp : pOutputListTM) {
             if (temp.getVehicleNumber().equals(value)) {
                 btnPark.setDisable(true);
             }
         }
-        if (!btnPark.isDisable()){
+        if (!btnPark.isDisable()) {
             btnOnDeliveryShift.setDisable(true);
         }
     }
@@ -129,9 +133,9 @@ public class DashBoardFormController {
     }
 
     public void managementLogInOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LogInUi.fxml"))));
-        stage.setTitle("Log in");
-        stage.show();
+        Parent load = FXMLLoader.load(getClass().getResource("../view/ManagementLogInForm.fxml"));
+        Stage window = (Stage) rootContext.getScene().getWindow();
+        window.setTitle("Log in");
+        window.setScene(new Scene(load));
     }
 }

@@ -10,7 +10,9 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -86,6 +88,11 @@ public class AddDriverFormController {
 
     public void newDriverOnAction(ActionEvent actionEvent) {
         btnSave.setText("Save");
+        txtDLNo.clear();
+        txtDriverName.clear();
+        txtAddress.clear();
+        txtContactNo.clear();
+        txtNIC.clear();
     }
 
     private void loadAllDriverDetails() {
@@ -138,8 +145,8 @@ public class AddDriverFormController {
     }
 
     public void cancelOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) context.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ManagementForm.fxml"))));
-        stage.show();
+        Parent load = FXMLLoader.load(getClass().getResource("../view/ManagementForm.fxml"));
+
+
     }
 }
