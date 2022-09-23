@@ -146,7 +146,8 @@ public class AddDriverFormController {
 
     public void cancelOnAction(ActionEvent actionEvent) throws IOException {
         Parent load = FXMLLoader.load(getClass().getResource("../view/ManagementForm.fxml"));
-
-
+        Stage window = (Stage) context.getScene().getWindow();
+        window.setTitle("Management Form - VMS v0.1");
+        window.setScene(new Scene(load));
     }
 }

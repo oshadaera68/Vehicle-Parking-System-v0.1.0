@@ -16,8 +16,8 @@
    <children>
       <Pane prefHeight="614.0" prefWidth="1012.0" style="-fx-background-radius: 29px; -fx-background-color: #ffffff;">
          <children>
-            <JFXComboBox fx:id="cmbOption" labelFloat="true" layoutX="36.0" layoutY="115.0" prefHeight="45.0" prefWidth="189.0" promptText="Select Option" style="-fx-background-color: #bdc3c7; -fx-background-radius: 29px;" />
-            <JFXButton buttonType="RAISED" layoutX="317.0" layoutY="106.0" onAction="#addVehicleOnAction" prefHeight="63.0" prefWidth="182.0" style="-fx-background-color: #2980b9;" text="Add Vehicle" textFill="WHITE">
+            <JFXComboBox fx:id="cmbOption" labelFloat="true" layoutX="36.0" layoutY="115.0" onAction="#selectiveCmbOnAction" prefHeight="45.0" prefWidth="189.0" promptText="Select Option" style="-fx-background-color: #bdc3c7; -fx-background-radius: 29px;" />
+            <JFXButton fx:id="btnAdd" buttonType="RAISED" layoutX="317.0" layoutY="106.0" onAction="#addVehicleOnAction" prefHeight="63.0" prefWidth="182.0" style="-fx-background-color: #2980b9;" text="Add Vehicle" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="44.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -41,7 +41,7 @@
                   <Font name="Ubuntu Regular" size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="805.0" layoutY="106.0" onAction="#logOutOnAction" prefHeight="63.0" prefWidth="182.0" style="-fx-background-color: #e74c3c;" text="Log Out" textFill="WHITE">
+            <JFXButton fx:id="btnLogOut" buttonType="RAISED" layoutX="805.0" layoutY="106.0" onAction="#logOutOnAction" prefHeight="63.0" prefWidth="182.0" style="-fx-background-color: #e74c3c;" text="Log Out" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="45.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -53,6 +53,14 @@
                   <Font name="Ubuntu Regular" size="18.0" />
                </font>
             </JFXButton>
+            <TableView fx:id="tblDeliver" layoutX="30.0" layoutY="195.0" prefHeight="391.0" prefWidth="956.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 36px;">
+               <columns>
+                  <TableColumn fx:id="colDVehicleNum" prefWidth="216.0" text="Vehicle Number" />
+                  <TableColumn fx:id="colVehicleType1" prefWidth="233.0" text="Vehicle Type" />
+                  <TableColumn fx:id="colDName" prefWidth="243.0" text="Driver Name" />
+                  <TableColumn fx:id="colLeaveTime" prefWidth="263.0" text="Deliver Time" />
+               </columns>
+            </TableView>
             <TableView fx:id="tblVehicle" layoutX="31.0" layoutY="195.0" prefHeight="391.0" prefWidth="956.0" style="-fx-background-color: #bdc3c7; -fx-background-radius: 36px;">
               <columns>
                 <TableColumn fx:id="colVehicleNum" prefWidth="216.0" text="Vehicle Number" />

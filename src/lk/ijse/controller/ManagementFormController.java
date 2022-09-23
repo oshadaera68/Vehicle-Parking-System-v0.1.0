@@ -1,5 +1,6 @@
 package lk.ijse.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.view.tm.DOutputListTm;
@@ -26,6 +28,29 @@ public class ManagementFormController {
     public TableColumn colParkingSlot;
     public TableColumn colParkedTime;
     public AnchorPane rootContext;
+    public TableView tblDeliver;
+    public TableColumn colDVehicleNum;
+    public TableColumn colDName;
+    public TableColumn colVehicleType1;
+    public TableColumn colLeaveTime;
+    public JFXButton btnAdd;
+    public JFXButton btnLogOut;
+
+    public void initialize() {
+        cmbOption.getItems().addAll("In Parking", "On Deliver");
+        cmbOption.setValue("In Parking");
+        colVehicleNum.setCellValueFactory(new PropertyValueFactory<>("vehicleNumber"));
+        colVehicleType.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
+        colParkingSlot.setCellValueFactory(new PropertyValueFactory<>("ParkingSlot"));
+        colParkedTime.setCellValueFactory(new PropertyValueFactory<>("ParkedTime"));
+
+        colVehicleNum.setCellValueFactory(new PropertyValueFactory<>("vehicleNumber"));
+        colVehicleType1.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
+        colDName.setCellValueFactory(new PropertyValueFactory<>("DriverName"));
+        colLeaveTime.setCellValueFactory(new PropertyValueFactory<>("LeftTime"));
+        tblVehicle.setItems(pOutputListTM);
+        tblDeliver.setItems(dOutputListTM);
+    }
 
     public void addVehicleOnAction(ActionEvent actionEvent) throws IOException {
         Parent load = FXMLLoader.load(getClass().getResource("../view/AddVehicleForm.fxml"));
@@ -46,5 +71,17 @@ public class ManagementFormController {
         Stage window = (Stage) rootContext.getScene().getWindow();
         window.setTitle("Dashboard Form - VMS v0.1");
         window.setScene(new Scene(load));
+    }
+
+    public void selectiveCmbOnAction(ActionEvent actionEvent) {
+        if (cmbOption.getValue().equals("On Deliver")) {
+            btnLogOut.setVisible(false);
+            tblVehicle.setVisible(false);
+            tblDeliver.setVisible(true);
+        } else {
+            btnLogOut.setVisible(true);
+            tblDeliver.setVisible(false);
+            tblVehicle.setVisible(true);
+        }
     }
 }
