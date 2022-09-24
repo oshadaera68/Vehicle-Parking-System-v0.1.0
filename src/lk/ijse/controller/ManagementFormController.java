@@ -22,13 +22,13 @@ public class ManagementFormController {
     public static ObservableList<POutputListTm> pOutputListTM = FXCollections.observableArrayList();
     public static ObservableList<DOutputListTm> dOutputListTM = FXCollections.observableArrayList();
     public JFXComboBox cmbOption;
-    public TableView tblVehicle;
+    public TableView<POutputListTm> tblVehicle;
     public TableColumn colVehicleNum;
     public TableColumn colVehicleType;
     public TableColumn colParkingSlot;
     public TableColumn colParkedTime;
     public AnchorPane rootContext;
-    public TableView tblDeliver;
+    public TableView<DOutputListTm> tblDeliver;
     public TableColumn colDVehicleNum;
     public TableColumn colDName;
     public TableColumn colVehicleType1;
@@ -39,13 +39,13 @@ public class ManagementFormController {
     public void initialize() {
         cmbOption.getItems().addAll("In Parking", "On Deliver");
         cmbOption.setValue("In Parking");
-        colVehicleNum.setCellValueFactory(new PropertyValueFactory<>("vehicleNumber"));
-        colVehicleType.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
+        colVehicleNum.setCellValueFactory(new PropertyValueFactory<>("VehicleNumber"));
+        colVehicleType.setCellValueFactory(new PropertyValueFactory<>("VehicleType"));
         colParkingSlot.setCellValueFactory(new PropertyValueFactory<>("ParkingSlot"));
         colParkedTime.setCellValueFactory(new PropertyValueFactory<>("ParkedTime"));
 
         colVehicleNum.setCellValueFactory(new PropertyValueFactory<>("vehicleNumber"));
-        colVehicleType1.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
+        colVehicleType1.setCellValueFactory(new PropertyValueFactory<>("VehicleType"));
         colDName.setCellValueFactory(new PropertyValueFactory<>("DriverName"));
         colLeaveTime.setCellValueFactory(new PropertyValueFactory<>("LeftTime"));
         tblVehicle.setItems(pOutputListTM);
